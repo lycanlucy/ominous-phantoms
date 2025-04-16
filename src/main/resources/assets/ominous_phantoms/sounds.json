@@ -1,0 +1,8 @@
+{
+  "event.mob_effect.night_omen": {
+    "sounds": [
+      "ominous_phantoms:event/night_omen"
+    ],
+    "subtitle": "subtitles.ominous_phantoms.event.mob_effect.night_omen"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "ominous_phantoms:add_configurable_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/phantom"
+    }
+  ],
+  "table": "ominous_phantoms:entities/phantom_extra_drop_bone",
+  "config": "phantoms_drop_bones"
+}

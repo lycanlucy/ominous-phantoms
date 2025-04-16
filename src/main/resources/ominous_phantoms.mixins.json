@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.lycanlucy.ominous_phantoms.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "ominous_phantoms.refmap.json",
+  "mixins": [
+    "PhantomSpawnerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
