@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "ominous_phantoms.refmap.json",
   "mixins": [
+    "PhantomAttackPlayerTargetGoalMixin",
     "PhantomSpawnerMixin"
   ],
   "client": [

@@ -1,5 +1,6 @@
 {
   "effect.ominous_phantoms.night_omen": "Night Omen",
   "subtitles.ominous_phantoms.event.mob_effect.night_omen": "Ominous night looms nearby",
-  "config.ominous_phantoms.phantoms_drop_bones": "Phantoms Drop Bones"
+  "config.ominous_phantoms.phantoms_drop_bones": "Phantoms Drop Bones",
+  "config.ominous_phantoms.phantoms_only_attack_afflicted_players": "Phantoms Only Attack Afflicted Players"
 }
