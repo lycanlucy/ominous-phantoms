@@ -2,7 +2,7 @@
 
 ## Ominous Phantoms
 
-![CurseForge Downloads](https://img.shields.io/curseforge/dt/1244767?logo=curseforge&logoColor=%23F16436&logoSize=auto&label=Download%20on%20CurseForge&link=https%3A%2F%2Fwww.curseforge.com%2Fminecraft%2Fmc-mods%2Fominous-phantoms)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/1244767?logo=curseforge&logoColor=%23F16436&logoSize=auto&label=Download%20on%20CurseForge)](https://www.curseforge.com/minecraft/mc-mods/ominous-phantoms)
 
 </center></div>
 
