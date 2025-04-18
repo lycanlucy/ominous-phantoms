@@ -3,6 +3,7 @@ package io.github.lycanlucy.ominous_phantoms;
 import io.github.lycanlucy.ominous_phantoms.effect.OminousPhantomsEffects;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.StringUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -35,7 +36,7 @@ public class OminousPhantomsEvents {
                     if (event.getName() != null) {
                         if (event.getName().isEmpty() && copy.has(DataComponents.CUSTOM_NAME))
                             copy.remove(DataComponents.CUSTOM_NAME);
-                        else if (!copy.getHoverName().getString().equals(event.getName()))
+                        else if (!StringUtil.isBlank(event.getName()) && !copy.getHoverName().getString().equals(event.getName()))
                             copy.set(DataComponents.CUSTOM_NAME, Component.literal(event.getName()));
                     }
 
