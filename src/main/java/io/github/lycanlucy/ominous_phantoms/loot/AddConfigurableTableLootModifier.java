@@ -38,7 +38,7 @@ public class AddConfigurableTableLootModifier extends AddTableLootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if (this.config == Config.PHANTOMS_DROP_BONES && OminousPhantomsConfig.phantomsDropBones) {
+        if (this.config == Config.PHANTOMS_DROP_BONES && OminousPhantomsConfig.bonyPhantoms) {
             return super.doApply(generatedLoot, context);
         }
         return generatedLoot;

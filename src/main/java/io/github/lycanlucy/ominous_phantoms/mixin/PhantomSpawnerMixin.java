@@ -14,6 +14,7 @@ import net.minecraft.world.level.NaturalSpawner;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.PhantomSpawner;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.entity.player.PlayerSpawnPhantomsEvent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,6 +22,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.List;
 
 @Mixin(PhantomSpawner.class)
 public class PhantomSpawnerMixin {
@@ -37,7 +40,7 @@ public class PhantomSpawnerMixin {
         if (this.nextTick > 0) {
             cir.setReturnValue(0);
         } else {
-            this.nextTick += (20 + randomSource.nextInt(20)) * 20;
+            this.nextTick += (15 + randomSource.nextInt(5)) * 20;
             if (serverLevel.getSkyDarken() < 5 && serverLevel.dimensionType().hasSkyLight()) {
                 cir.setReturnValue(0);
             } else {
@@ -55,18 +58,21 @@ public class PhantomSpawnerMixin {
                                 BlockState blockState = serverLevel.getBlockState(blockPos);
                                 FluidState fluidState = serverLevel.getFluidState(blockPos);
                                 if (NaturalSpawner.isValidEmptySpawnBlock(serverLevel, blockPos, blockState, fluidState, EntityType.PHANTOM)) {
-                                    SpawnGroupData spawnGroupData = null;
-                                    int phantomsToSpawn = event.getPhantomsToSpawn();
-                                    MobEffectInstance effect = serverPlayer.getEffect(OminousPhantomsEffects.NIGHT_OMEN);
-                                    if (effect != null) {
-                                        for (int i1 = 0; i1 < phantomsToSpawn; ++i1) {
-                                            Phantom phantom = EntityType.PHANTOM.create(serverLevel);
-                                            if (phantom != null) {
-                                                phantom.moveTo(blockPos, 0.0F, 0.0F);
-                                                spawnGroupData = phantom.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(playerPosition), MobSpawnType.NATURAL, spawnGroupData);
-                                                phantom.setPhantomSize(effect.getAmplifier());
-                                                serverLevel.addFreshEntityWithPassengers(phantom);
-                                                ++i;
+                                    List<Phantom> list = serverLevel.getEntitiesOfClass(Phantom.class, new AABB(blockPos).inflate(48.0F, 48.0F, 48.0F));
+                                    if (list.size() < 3) {
+                                        SpawnGroupData spawnGroupData = null;
+                                        int phantomsToSpawn = event.getPhantomsToSpawn();
+                                        MobEffectInstance effect = serverPlayer.getEffect(OminousPhantomsEffects.NIGHT_OMEN);
+                                        if (effect != null) {
+                                            for (int i1 = 0; i1 < phantomsToSpawn; ++i1) {
+                                                Phantom phantom = EntityType.PHANTOM.create(serverLevel);
+                                                if (phantom != null) {
+                                                    phantom.moveTo(blockPos, 0.0F, 0.0F);
+                                                    spawnGroupData = phantom.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(playerPosition), MobSpawnType.NATURAL, spawnGroupData);
+                                                    phantom.setPhantomSize(effect.getAmplifier());
+                                                    serverLevel.addFreshEntityWithPassengers(phantom);
+                                                    ++i;
+                                                }
                                             }
                                         }
                                     }

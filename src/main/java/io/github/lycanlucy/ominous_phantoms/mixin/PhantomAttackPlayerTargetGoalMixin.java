@@ -26,7 +26,7 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
 
     @Inject(method = "canUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Phantom$PhantomAttackPlayerTargetGoal;reducedTickDelay(I)I", shift = At.Shift.AFTER), cancellable = true)
     private void canUse(CallbackInfoReturnable<Boolean> cir) {
-        if (OminousPhantomsConfig.phantomsOnlyAttackAfflictedPlayers) {
+        if (OminousPhantomsConfig.pickyPhantoms) {
             List<Player> list = this$0.level().getNearbyPlayers(this.ominous_phantoms$pickyAttackTargeting, this$0, this$0.getBoundingBox().inflate(16.0F, 64.0F, 16.0F));
             if (!list.isEmpty()) {
                 list.sort(Comparator.<Entity, Double>comparing(Entity::getY).reversed());

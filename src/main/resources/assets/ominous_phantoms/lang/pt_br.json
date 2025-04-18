@@ -1,6 +1,7 @@
 {
+  "config.ominous_phantoms.bony_phantoms": "Phantoms ósseos",
+  "config.ominous_phantoms.mending_membranes": "Membranas de remendo",
+  "config.ominous_phantoms.picky_phantoms": "Phantoms seletivos",
   "effect.ominous_phantoms.night_omen": "Presságio noturno",
-  "subtitles.ominous_phantoms.event.mob_effect.night_omen": "Noite sombria emana",
-  "config.ominous_phantoms.phantoms_drop_bones": "Phantoms largam ossos",
-  "config.ominous_phantoms.phantoms_only_attack_afflicted_players": "Phantoms somente atacam jogadores afligidos"
+  "subtitles.ominous_phantoms.event.mob_effect.night_omen": "Noite sombria emana"
 }
