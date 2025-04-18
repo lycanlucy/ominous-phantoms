@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import io.github.lycanlucy.ominous_phantoms.effect.OminousPhantomsEffects;
 import io.github.lycanlucy.ominous_phantoms.loot.OminousPhantomsLootModifiers;
 import io.github.lycanlucy.ominous_phantoms.particle.OminousPhantomsParticleTypes;
+import io.github.lycanlucy.ominous_phantoms.recipe.OminousPhantomsRecipeSerializers;
 import io.github.lycanlucy.ominous_phantoms.sound.OminousPhantomsSoundEvents;
 import net.minecraft.client.particle.SpellParticle;
 import net.neoforged.api.distmarker.Dist;
@@ -32,6 +33,7 @@ public class OminousPhantoms {
         OminousPhantomsSoundEvents.register(modEventBus);
         OminousPhantomsEffects.register(modEventBus);
         OminousPhantomsLootModifiers.register(modEventBus);
+        OminousPhantomsRecipeSerializers.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, OminousPhantomsConfig.SPEC);
     }

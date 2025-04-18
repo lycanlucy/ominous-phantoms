@@ -20,7 +20,7 @@ public class OminousPhantomsConfig {
             .define("bonyPhantoms", true);
 
     private static final ModConfigSpec.BooleanValue MENDING_MEMBRANES = BUILDER
-            .comment("Phantom Membranes can be used to repair any damaged item at an Anvil.")
+            .comment("Phantom Membranes can be used to repair any damaged item in the crafting grid.")
             .translation("config.ominous_phantoms.mending_membranes")
             .define("mendingMembranes", true);
 
