@@ -7,5 +7,5 @@
     }
   ],
   "table": "ominous_phantoms:entities/phantom_extra_drop_bone",
-  "config": "phantoms_drop_bones"
+  "config": "bony_phantoms"
 }

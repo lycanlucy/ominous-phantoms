@@ -39,7 +39,7 @@ public class MembraneRepairRecipe extends CustomRecipe {
                         itemToRepair = itemStack;
                     }
                 } else {
-                    if (itemStack.is(Items.PHANTOM_MEMBRANE) && itemStack.getCount() == 1) {
+                    if (itemStack.is(Items.PHANTOM_MEMBRANE)) {
                         list.add(itemStack);
                     }
 
@@ -94,25 +94,28 @@ public class MembraneRepairRecipe extends CustomRecipe {
         Pair<ItemStack, ArrayList<ItemStack>> pair = getPair(craftingInput);
         if (pair == null)
             return remainingItems;
-        ItemStack itemToRepair = pair.getA();
-        ItemStack copy = itemToRepair.copy();
+        ItemStack repairableItem = pair.getA().copy();
         ArrayList<ItemStack> membranes = pair.getB();
 
-        if (copy.getDamageValue() > 0) {
-            int healStep = copy.getMaxDamage() / 8;
-            int nSteps = Math.min(membranes.size(), (int)Math.ceil(copy.getDamageValue() / (double)healStep));
-            if (nSteps > 0) {
-                copy.setDamageValue(copy.getDamageValue() - nSteps * healStep);
-                membranes.subList(0, nSteps).clear();
+        for (int i = 0; i < craftingInput.size(); i++) {
+            if (craftingInput.getItem(i).is(Items.PHANTOM_MEMBRANE)) {
+                remainingItems.set(i, new ItemStack(Items.PHANTOM_MEMBRANE));
             }
         }
 
-        if (!membranes.isEmpty()) {
+        int nSteps = 0;
+
+        if (repairableItem.getDamageValue() > 0) {
+            int healStep = repairableItem.getMaxDamage() / 8;
+            nSteps = Math.min(membranes.size(), (int)Math.ceil(repairableItem.getDamageValue() / (double)healStep));
+        }
+
+        if (nSteps > 0) {
             int m = 0;
-            for (int i = 0; m < membranes.size() && i < craftingInput.size(); i++) {
-                if (craftingInput.getItem(i).is(Items.PHANTOM_MEMBRANE)) {
-                    ItemStack copy1 = craftingInput.getItem(i).copy();
-                    remainingItems.set(i, copy1);
+            for (int i = 0; m < nSteps && i < remainingItems.size(); i++) {
+                ItemStack itemStack = remainingItems.get(i);
+                if (itemStack.is(Items.PHANTOM_MEMBRANE)) {
+                    itemStack.shrink(1);
                     m++;
                 }
             }

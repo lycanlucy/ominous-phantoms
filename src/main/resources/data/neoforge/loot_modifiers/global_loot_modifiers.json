@@ -1,6 +1,7 @@
 {
   "replace": false,
   "entries": [
-    "ominous_phantoms:phantom_extra_drop_bone"
+    "ominous_phantoms:phantom_extra_drop_bone",
+    "ominous_phantoms:dungeon_extra_loot_ominous_bottle"
   ]
 }

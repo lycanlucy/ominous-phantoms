@@ -38,14 +38,22 @@ public class AddConfigurableTableLootModifier extends AddTableLootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if (this.config == Config.PHANTOMS_DROP_BONES && OminousPhantomsConfig.bonyPhantoms) {
-            return super.doApply(generatedLoot, context);
+        switch (this.config) {
+            case BONY_PHANTOMS -> {
+                if (OminousPhantomsConfig.bonyPhantoms)
+                    return super.doApply(generatedLoot, context);
+            }
+            case DUNGEON_BOTTLES -> {
+                if (OminousPhantomsConfig.dungeonBottles)
+                    return super.doApply(generatedLoot, context);
+            }
         }
         return generatedLoot;
     }
 
     public enum Config implements StringRepresentable {
-        PHANTOMS_DROP_BONES("phantoms_drop_bones");
+        BONY_PHANTOMS("bony_phantoms"),
+        DUNGEON_BOTTLES("dungeon_bottles");
 
         private final String name;
 

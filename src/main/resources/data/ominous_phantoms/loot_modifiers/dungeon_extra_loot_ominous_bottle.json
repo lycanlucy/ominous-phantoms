@@ -1,0 +1,11 @@
+{
+  "type": "ominous_phantoms:add_configurable_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/simple_dungeon"
+    }
+  ],
+  "table": "ominous_phantoms:chests/dungeon_extra_loot_ominous_bottle",
+  "config": "dungeon_bottles"
+}

@@ -24,16 +24,23 @@ public class OminousPhantomsConfig {
             .translation("config.ominous_phantoms.mending_membranes")
             .define("mendingMembranes", true);
 
+    private static final ModConfigSpec.BooleanValue DUNGEON_BOTTLES = BUILDER
+            .comment("Ominous Bottles can be found in Dungeon chests.")
+            .translation("config.ominous_phantoms.dungeon_bottles")
+            .define("dungeonBottles", true);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean pickyPhantoms;
     public static boolean bonyPhantoms;
     public static boolean mendingMembranes;
+    public static boolean dungeonBottles;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
         pickyPhantoms = PICKY_PHANTOMS.get();
         bonyPhantoms = BONY_PHANTOMS.get();
         mendingMembranes = MENDING_MEMBRANES.get();
+        dungeonBottles = DUNGEON_BOTTLES.get();
     }
 }
