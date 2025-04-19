@@ -39,7 +39,7 @@ public class MembraneRepairRecipe extends CustomRecipe {
                         itemToRepair = itemStack;
                     }
                 } else {
-                    if (itemStack.is(Items.PHANTOM_MEMBRANE)) {
+                    if (itemStack.is(Items.PHANTOM_MEMBRANE) && itemStack.getCount() == 1) {
                         list.add(itemStack);
                     }
 
@@ -108,8 +108,13 @@ public class MembraneRepairRecipe extends CustomRecipe {
         }
 
         if (!membranes.isEmpty()) {
-            for (int i = 0; i < membranes.size(); i++) {
-                remainingItems.set(i, membranes.get(i).copy());
+            int m = 0;
+            for (int i = 0; m < membranes.size() && i < craftingInput.size(); i++) {
+                if (craftingInput.getItem(i).is(Items.PHANTOM_MEMBRANE)) {
+                    ItemStack copy1 = craftingInput.getItem(i).copy();
+                    remainingItems.set(i, copy1);
+                    m++;
+                }
             }
         }
 
