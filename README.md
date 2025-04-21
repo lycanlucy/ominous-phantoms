@@ -2,6 +2,7 @@
 
 ## Ominous Phantoms
 
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/NQKAQdLb?style=flat&logo=modrinth&logoColor=%2300AF5C&logoSize=auto&label=Download%20on%20Modrinth)](https://modrinth.com/mod/ominous-phantoms)
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1244767?logo=curseforge&logoColor=%23F16436&logoSize=auto&label=Download%20on%20CurseForge)](https://www.curseforge.com/minecraft/mc-mods/ominous-phantoms)
 
 </center></div>
